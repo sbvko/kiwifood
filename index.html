@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="KIWI Fast Food — Mazali lahzalar KIWI bilan! Yangi ingredientlar, premium burgerlar, lavash va unutilmas lazzatlar.">
+  <meta name="theme-color" content="#000000">
+  <title>KIWI — Mazali lahzalar KIWI bilan!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- A. Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="#bosh-sahifa" class="logo" aria-label="KIWI bosh sahifa">
+        <span class="logo__badge">K</span>
+        <span class="logo__text">KIWI</span>
+        <span class="logo__dot" aria-hidden="true"></span>
+      </a>
+
+      <nav class="nav" id="primaryNav" aria-label="Asosiy navigatsiya">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="#bosh-sahifa" class="nav__link active">Bosh sahifa</a></li>
+          <li class="nav__item"><a href="#menyu" class="nav__link">Menyu</a></li>
+          <li class="nav__item"><a href="#biz-haqimizda" class="nav__link">Biz haqimizda</a></li>
+          <li class="nav__item"><a href="#aksiyalar" class="nav__link">Aksiyalar</a></li>
+          <li class="nav__item"><a href="#aloqa" class="nav__link">Aloqa</a></li>
+        </ul>
+      </nav>
+
+      <div class="navbar__actions">
+        <button type="button" class="cart-trigger" id="cartTrigger" aria-label="Savatni ochish">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="cart-trigger__count" id="cartCount">0</span>
+        </button>
+
+        <button type="button" class="btn btn--primary navbar__cta" data-open-order>
+          Buyurtma berish
+        </button>
+
+        <button type="button" class="hamburger" id="hamburgerBtn" aria-label="Menyuni ochish" aria-expanded="false" aria-controls="mobileMenu">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu__backdrop" data-close-menu></div>
+    <div class="mobile-menu__panel">
+      <div class="mobile-menu__header">
+        <a href="#bosh-sahifa" class="logo" data-close-menu>
+          <span class="logo__badge">K</span>
+          <span class="logo__text">KIWI</span>
+          <span class="logo__dot" aria-hidden="true"></span>
+        </a>
+        <button type="button" class="mobile-menu__close" data-close-menu aria-label="Menyuni yopish">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <nav class="mobile-menu__nav" aria-label="Mobil navigatsiya">
+        <ul class="mobile-menu__list">
+          <li><a href="#bosh-sahifa" class="mobile-menu__link active" data-close-menu>Bosh sahifa</a></li>
+          <li><a href="#menyu" class="mobile-menu__link" data-close-menu>Menyu</a></li>
+          <li><a href="#biz-haqimizda" class="mobile-menu__link" data-close-menu>Biz haqimizda</a></li>
+          <li><a href="#aksiyalar" class="mobile-menu__link" data-close-menu>Aksiyalar</a></li>
+          <li><a href="#aloqa" class="mobile-menu__link" data-close-menu>Aloqa</a></li>
+        </ul>
+      </nav>
+
+      <div class="mobile-menu__footer">
+        <button type="button" class="btn btn--primary btn--full" data-open-order data-close-menu>
+          Buyurtma berish
+        </button>
+        <p class="mobile-menu__hours">Har kuni: 09:00 — 02:00</p>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- B. Hero Section -->
+    <section class="hero" id="bosh-sahifa">
+      <div class="hero__grid-bg" aria-hidden="true"></div>
+      <div class="hero__accent-ring" aria-hidden="true"></div>
+
+      <div class="container hero__container">
+        <div class="hero__content">
+          <div class="hero__badge reveal-up">
+            <span class="hero__badge-dot"></span>
+            <span>PREMIUM FAST FOOD • 100% HALOL</span>
+          </div>
+
+          <h1 class="hero__title reveal-up" data-delay="100">
+            Mazali lahzalar <span class="text-accent">KIWI</span> bilan!
+          </h1>
+
+          <p class="hero__description reveal-up" data-delay="200">
+            Sevimli ta'mlaringiz, yangi ingredientlar va unutilmas lazzatlar — barchasi bir joyda. Har bir luqmada haqiqiy sifatni his eting.
+          </p>
+
+          <div class="hero__actions reveal-up" data-delay="300">
+            <a href="#menyu" class="btn btn--primary btn--lg">
+              <span>Menyuni ko'rish</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <button type="button" class="btn btn--outline-light btn--lg" data-open-order>
+              Buyurtma berish
+            </button>
+          </div>
+
+          <div class="hero__stats reveal-up" data-delay="400">
+            <div class="hero__stat">
+              <span class="hero__stat-num">25 daq</span>
+              <span class="hero__stat-label">Tezkor yetkazib berish</span>
+            </div>
+            <div class="hero__stat-divider" aria-hidden="true"></div>
+            <div class="hero__stat">
+              <span class="hero__stat-num">100%</span>
+              <span class="hero__stat-label">Barra go'sht va sabzavotlar</span>
+            </div>
+            <div class="hero__stat-divider" aria-hidden="true"></div>
+            <div class="hero__stat">
+              <span class="hero__stat-num">4.9 ★</span>
+              <span class="hero__stat-label">Mijozlar bahosi</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__visual reveal-up" data-delay="200">
+          <div class="hero__card-frame">
+            <div class="hero__corner-tag">XIT SOTUV</div>
+            <div class="img-slot img-slot--hero" data-placeholder="assets/images/hero-burger.png">
+              <img
+                src="assets/images/hero-burger.png"
+                alt="KIWI Signature Max Burger"
+                class="img-slot__img"
+                onerror="this.parentElement.classList.add('is-missing')"
+              >
+              <div class="img-slot__fallback" aria-hidden="true">
+                <div class="img-slot__icon">
+                  <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <rect x="3" y="3" width="18" height="18" rx="3"></rect>
+                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                    <polyline points="21 15 16 10 5 21"></polyline>
+                  </svg>
+                </div>
+                <span class="img-slot__path">assets/images/hero-burger.png</span>
+                <span class="img-slot__hint">Asosiy burger rasmi (1200×1000 px)</span>
+              </div>
+            </div>
+
+            <div class="hero__floating-card hero__floating-card--top">
+              <span class="floating-badge">YANGI</span>
+              <div>
+                <strong>KIWI Double Max</strong>
+                <span>Ikki karra mol go'shti &amp; cheddar</span>
+              </div>
+            </div>
+
+            <div class="hero__floating-card hero__floating-card--bottom">
+              <div class="price-pill">
+                <small>Boshlang'ich narx</small>
+                <strong>28 000 so'm</strong>
+              </div>
+              <button type="button" class="mini-add-btn" data-quick-add="KIWI Burger" data-quick-price="32000" aria-label="KIWI Burger qo'shish">
+                +
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#eng-kop-sotilgan" class="hero__scroll-down" aria-label="Pastga aylantirish">
+        <span>Pastga</span>
+        <div class="hero__scroll-line"></div>
+      </a>
+    </section>
+
+    <!-- C. Featured Products Carousel -->
+    <section class="section section--light" id="eng-kop-sotilgan">
+      <div class="container">
+        <div class="section-header section-header--split reveal-up">
+          <div>
+            <span class="section-eyebrow">ENG KO'P SOTILGAN</span>
+            <h2 class="section-title">Mijozlarimizning <span class="text-accent">sevimli</span> tanlovi</h2>
+          </div>
+
+          <div class="carousel-controls" aria-label="Karusel boshqaruvi">
+            <button type="button" class="carousel-btn" id="featuredPrev" aria-label="Oldingi mahsulot">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <button type="button" class="carousel-btn" id="featuredNext" aria-label="Keyingi mahsulot">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="carousel" id="featuredCarousel" tabindex="0" aria-roledescription="karusel" aria-label="Eng ko'p sotilgan taomlar">
+          <div class="carousel__viewport">
+            <div class="carousel__track" id="featuredTrack">
+              <!-- Slide 1: KIWI Burger -->
+              <article class="product-card carousel__slide">
+                <div class="product-card__media">
+                  <span class="product-card__tag">XIT</span>
+                  <div class="img-slot img-slot--product">
+                    <img src="assets/images/kiwi-burger.png" alt="KIWI Burger" loading="lazy" class="img-slot__img" onerror="this.parentElement.classList.add('is-missing')">
+                    <div class="img-slot__fallback" aria-hidden="true">
+                      <span class="img-slot__path">assets/images/kiwi-burger.png</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="product-card__body">
+                  <div class="product-card__meta">
+                    <span class="product-card__cat">Burgerlar</span>
+                    <span class="product-card__weight">310 g</span>
+                  </div>
+                  <h3 class="product-card__title">KIWI Burger</h3>
+                  <p class="product-card__desc">Shirali mol go'shti kotleti, eritilgan cheddar pishlog'i, yangi aysberg salati va maxsus KIWI sousi.</p>
+                  <div class="product-card__footer">
+                    <div class="product-card__price">32 000 <span>so'm</span></div>
+                    <button type="button" class="btn btn--primary btn--sm" data-quick-add="KIWI Burger" data-quick-price="32000">
+                      Buyurtma berish
+                    </button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Slide 2: Double Burger -->
+              <article class="product-card carousel__slide">
+                <div class="product-card__media">
+                  <span class="product-card__tag product-card__tag--dark">2X GO'SHT</span>
+                  <div class="img-slot img-slot--product">
+                    <img src="assets/images/double-burger.png" alt="Double Burger" loading="lazy" class="img-slot__img" onerror="this.parentElement.classList.add('is-missing')">
+                    <div class="img-slot__fallback" aria-hidden="true">
+                      <span class="img-slot__path">assets/images/double-burger.png</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="product-card__body">
+                  <div class="product-card__meta">
+                    <span class="product-card__cat">Burgerlar</span>
+                    <span class="product-card__weight">430 g</span>
+                  </div>
+                  <h3 class="product-card__title">Double Burger</h3>
+                  <p class="product-card__desc">Ikki qavat olovda pishirilgan mol go'shti, qo'sh cheddar, tuzlangan bodring va tutunli gril sousi.</p>
+                  <div class="product-card__footer">
+                    <div class="product-card__price">44 000 <span>so'm</span></div>
+                    <button type="button" class="btn btn--primary btn--sm" data-quick-add="Double Burger" data-quick-price="44000">
+                      Buyurtma berish
+                    </button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Slide 3: Chicken Burger -->
+              <article class="product-card carousel__slide">
+                <div class="product-card__media">
+                  <span class="product-card__tag">QARSILDOQ</span>
+                  <div class="img-slot img-slot--product">
+                    <img src="assets/images/chicken-burger.png" alt="Chicken Burger" loading="lazy" class="img-slot__img" onerror="this.parentElement.classList.add('is-missing')">
+                    <div class="img-slot__fallback" aria-hidden="true">
+                      <span class="img-slot__path">assets/images/chicken-burger.png</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="product-card__body">
+                  <div class="product-card__meta">
+                    <span class="product-card__cat">Burgerlar</span>
+                    <span class="product-card__weight">290 g</span>
+                  </div>
+                  <h3 class="product-card__title">Chicken Burger</h3>
+                  <p class="product-card__desc">Maxsus ziravorlarda marinadlangan qarsildoq tovuq filesi, pomidor bo'laklari va qaymoqli sarimsoq sousi.</p>
+                  <div class="product-card__footer">
+                    <div class="product-card__price">28 000 <span>so'm</span></div>
+                    <button type="button" class="btn btn--primary btn--sm" data-quick-add="Chicken Burger" data-quick-price="28000">
+                      Buyurtma berish
+                    </button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Slide 4: Crispy Nuggets -->
+              <article class="product-card carousel__slide">
+                <div class="product-card__media">
+                  <span class="product-card__tag">9 DONA</span>
+                  <div class="img-slot img-slot--product">
+                    <img src="assets/images/nuggets.png" alt="Crispy Nuggets" loading="lazy" class="img-slot__img" onerror="this.parentElement.classList.add('is-missing')">
+                    <div class="img-slot__fallback" aria-hidden="true">
+                      <span class="img-slot__path">assets/images/nuggets.png</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="product-card__body">
+                  <div class="product-card__meta">
+                    <span class="product-card__cat">Fri va gazaklar</span>
+                    <span class="product-card__weight">210 g</span>
+                  </div>
+                  <h3 class="product-card__title">Crispy Nuggets</h3>
+                  <p class="product-card__desc">Oltinrang qarsildoq qobiqli yumshoq tovuq naggetslari — sevimli sous bilan ideal uyg'unlik.</p>
+                  <div class="product-card__footer">
+                    <div class="product-card__price">22 000 <span>so'm</span></div>
+                    <button type="button" class="btn btn--primary btn--sm" data-quick-add="Crispy Nuggets" data-quick-price="22000">
+                      Buyurtma berish
+                    </button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Slide 5: French Fries -->
+              <article class="product-card carousel__slide">
+                <div class="product-card__media">
+                  <span class="product-card__tag product-card__tag--dark">ISSIQ</span>
+                  <div class="img-slot img-slot--product">
+                    <img src="assets/images/fries.png" alt="French Fries" loading="lazy" class="img-slot__img" onerror="this.parentElement.classList.add('is-missing')">
+                    <div class="img-slot__fallback" aria-hidden="true">
+                      <span class="img-slot__path">assets/images/fries.png</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="product-card__body">
+                  <div class="product-card__meta">
+                    <span class="product-card__cat">Fri va gazaklar</span>
+                    <span class="product-card__weight">150 g</span>
+                  </div>
+                  <h3 class="product-card__title">French Fries</h3>
+                  <p class="product-card__desc">Tashqi tomoni qarsildoq, ichi yumshoq saralangan kartoshka fri dengiz tuzi bilan.</p>
+                  <div class="product-card__footer">
+                    <div class="product-card__price">16 000 <span>so'm</span></div>
+                    <button type="button" class="btn btn--primary btn--sm" data-quick-add="French Fries" data-quick-price="16000">
+                      Buyurtma berish
+                    </button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Slide 6: Cheese Burger -->
+              <article class="product-card carousel__slide">
+                <div class="product-card__media">
+                  <span class="product-card__tag">KLASSIKA</span>
+                  <div class="img-slot img-slot--product">
+                    <img src="assets/images/cheese-burger.png" alt="Cheese Burger" loading="lazy" class="img-slot__img" onerror="this.parentElement.classList.add('is-missing')">
+                    <div class="img-slot__fallback" aria-hidden="true">
+                      <span class="img-slot__path">assets/images/cheese-burger.png</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="product-card__body">
+                  <div class="product-card__meta">
+                    <span class="product-card__cat">Burgerlar</span>
+                    <span class="product-card__weight">270 g</span>
+                  </div>
+                  <h3 class="product-card__title">Cheese Burger</h3>
+                  <p class="product-card__desc">Klassik mol go'shti kotleti, ikki bo'lak erigan cheddar pishlog'i, piyoz halqalari va xantal sousi.</p>
+                  <div class="product-card__footer">
+                    <div class="product-card__price">29 000 <span>so'm</span></div>
+                    <button type="button" class="btn btn--primary btn--sm" data-quick-add="Cheese Burger" data-quick-price="29000">
+                      Buyurtma berish
+                    </button>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="carousel__dots" id="featuredDots" role="tablist" aria-label="Mahsulot sahifalari"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- D. Menu Section -->
+    <section class="section section--offwhite" id="menyu">
+      <div class="container">
+        <div class="section-header section-header--center reveal-up">
+          <span class="section-eyebrow">TO'LIQ MENYU</span>
+          <h2 class="section-title">Har bir ta'mga mos <span class="text-accent">mazali</span> tanlov</h2>
+          <p class="section-subtitle">Kategoriyani tanlang va sevimli taomingizni bir necha soniyada buyurtmangizga qo'shing.</p>
+        </div>
+
+        <!-- Category Filter Buttons -->
+        <div class="menu-filters reveal-up" role="tablist" aria-label="Menyu kategoriyalari" id="menuFilters">
+          <button type="button" class="filter-btn active" role="tab" aria-selected="true" data-category="Burgerlar">
+            Burgerlar
+          </button>
+          <button type="button" class="filter-btn" role="tab" aria-selected="false" data-category="Lavash">
+            Lavash
+          </button>
+          <button type="button" class="filter-btn" role="tab" aria-selected="false" data-category="Hot-dog">
+            Hot-dog
+          </button>
+          <button type="button" class="filter-btn" role="tab" aria-selected="false" data-category="Fri va gazaklar">
+            Fri va gazaklar
+          </button>
+          <button type="button" class="filter-btn" role="tab" aria-selected="false" data-category="Ichimliklar">
+            Ichimliklar
+          </button>
+          <button type="button" class="filter-btn" role="tab" aria-selected="false" data-category="Setlar">
+            Setlar
+          </button>
+        </div>
+
+        <!-- Dynamic Menu Grid -->
+        <div class="menu-grid" id="menuGrid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- E. Promotional Banner / Special Offers -->
+    <section class="promo-section" id="aksiyalar">
+      <div class="promo-section__stripe" aria-hidden="true"></div>
+      <div class="container promo-section__container">
+        <div class="promo-section__content reveal-up">
+          <span class="promo-badge">MAXSUS TAKLIF • HAFTA AKSIYASI</span>
+          <h2 class="promo-section__title">KIWI bilan yanada mazali!</h2>
+          <p class="promo-section__desc">
+            Sevimli taomlaringiz va maxsus takliflar sizni kutmoqda. Ikki kishilik "KIWI Duo Set" buyurtma qiling va bepul ichimliklar to'plamiga ega bo'ling!
+          </p>
+
+          <div class="promo-perks">
+            <div class="promo-perk">
+              <span class="promo-perk__num">-25%</span>
+              <span class="promo-perk__text">Kombo setlarga chegirma</span>
+            </div>
+            <div class="promo-perk">
+              <span class="promo-perk__num">0 so'm</span>
+              <span class="promo-perk__text">80 000 so'mdan yetkazish</span>
+            </div>
+          </div>
+
+          <div class="promo-section__actions">
+            <a href="#menyu" class="btn btn--primary btn--lg" data-select-category="Setlar">
+              Aksiyalarni ko'rish
+            </a>
+            <button type="button" class="btn btn--outline-light btn--lg" data-quick-add="KIWI Duo Set (Aksiya)" data-quick-price="69000">
+              Setni buyurtma qilish — 69 000 so'm
+            </button>
+          </div>
+        </div>
+
+        <div class="promo-section__visual reveal-up" data-delay="150">
+          <div class="promo-card">
+            <div class="promo-card__discount-tag">-25%</div>
+            <div class="img-slot img-slot--promo">
+              <img src="assets/images/promotional-banner.png" alt="KIWI maxsus aksiya to'plami" loading="lazy" class="img-slot__img" onerror="this.parentElement.classList.add('is-missing')">
+              <div class="img-slot__fallback" aria-hidden="true">
+                <div class="img-slot__icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <rect x="3" y="3" width="18" height="18" rx="3"></rect>
+                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                    <polyline points="21 15 16 10 5 21"></polyline>
+                  </svg>
+                </div>
+                <span class="img-slot__path">assets/images/promotional-banner.png</span>
+                <span class="img-slot__hint">Aksiya banneri rasmi (1000×900 px)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- F. About Us Section -->
+    <section class="section section--light about-section" id="biz-haqimizda">
+      <div class="container about-section__container">
+        <div class="about-section__media reveal-up">
+          <div class="about-frame">
+            <div class="about-frame__accent" aria-hidden="true"></div>
+            <div class="img-slot img-slot--about">
+              <img src="assets/images/about-kiwi.png" alt="KIWI oshxonasi va jamoasi" loading="lazy" class="img-slot__img" onerror="this.parentElement.classList.add('is-missing')">
+              <div class="img-slot__fallback" aria-hidden="true">
+                <div class="img-slot__icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <rect x="3" y="3" width="18" height="18" rx="3"></rect>
+                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                    <polyline points="21 15 16 10 5 21"></polyline>
+                  </svg>
+                </div>
+                <span class="img-slot__path">assets/images/about-kiwi.png</span>
+                <span class="img-slot__hint">Brend haqida rasm (900×1000 px)</span>
+              </div>
+            </div>
+            <div class="about-frame__experience">
+              <strong>100%</strong>
+              <span>Tabiiy va halol mahsulotlar</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-section__content reveal-up" data-delay="150">
+          <span class="section-eyebrow">BIZ HAQIMIZDA</span>
+          <h2 class="section-title">KIWI — ta'm va sifat <span class="text-accent">uyg'unligi</span></h2>
+          <p class="about-section__text">
+            Biz har bir buyurtmada mazali ta'm, sifatli ingredientlar va samimiy xizmatni birlashtiramiz. KIWI bilan har bir lahza yanada mazali!
+          </p>
+          <p class="about-section__subtext">
+            Har bir burger va lavash buyurtma tushgan zahoti, yangi uzilgan sabzavotlar, yumshoq non va maxsus mualliflik souslari bilan tayyorlanadi.
+          </p>
+
+          <div class="values-list">
+            <div class="value-item">
+              <div class="value-item__icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  <polyline points="9 12 11 14 15 10"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h3 class="value-item__title">Sifatli ingredientlar</h3>
+                <p class="value-item__desc">Faqat tekshirilgan yetkazib beruvchilardan olingan saralangan mol va tovuq go'shti.</p>
+              </div>
+            </div>
+
+            <div class="value-item">
+              <div class="value-item__icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h3 class="value-item__title">Har doim yangi</h3>
+                <p class="value-item__desc">Taomlar oldindan tayyorlab qo'yilmaydi — har bir buyurtma issiq holda pishiriladi.</p>
+              </div>
+            </div>
+
+            <div class="value-item">
+              <div class="value-item__icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+              </div>
+              <div>
+                <h3 class="value-item__title">Tez va samimiy xizmat</h3>
+                <p class="value-item__desc">O'rtacha 25 daqiqada issiq yetkazib berish va har bir mehmonga yuqori e'tibor.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- G. Customer Reviews Carousel -->
+    <section class="section section--offwhite" id="sharhlar">
+      <div class="container">
+        <div class="section-header section-header--split reveal-up">
+          <div>
+            <span class="section-eyebrow">MIJOZLAR FIKRI</span>
+            <h2 class="section-title">Biz haqimizda <span class="text-accent">nima</span> deyishadi?</h2>
+          </div>
+
+          <div class="carousel-controls" aria-label="Sharhlar karuseli boshqaruvi">
+            <button type="button" class="carousel-btn" id="reviewsPrev" aria-label="Oldingi sharh">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <button type="button" class="carousel-btn" id="reviewsNext" aria-label="Keyingi sharh">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="carousel reviews-carousel" id="reviewsCarousel" tabindex="0" aria-roledescription="karusel" aria-label="Mijozlar sharhlari">
+          <div class="carousel__viewport">
+            <div class="carousel__track" id="reviewsTrack">
+              <!-- Review 1 -->
+              <article class="review-card carousel__slide">
+                <div class="review-card__top">
+                  <div class="review-card__stars" aria-label="5 yulduzdan 5">★★★★★</div>
+                  <span class="review-card__quote" aria-hidden="true">”</span>
+                </div>
+                <p class="review-card__text">
+                  "KIWI Burger haqiqatan ham boshqacha! Go'shti juda shirali, sousi esa o'ziga xos mazali. Yetkazib berish ham kutilganidan tezroq — 20 daqiqada issiq holda keldi."
+                </p>
+                <div class="review-card__author">
+                  <div class="img-slot img-slot--avatar">
+                    <img src="assets/images/customer-avatar-1.png" alt="Sardor Rahimov" loading="lazy" class="img-slot__img" onerror="this.parentElement.classList.add('is-missing')">
+                    <div class="img-slot__fallback img-slot__fallback--avatar" aria-hidden="true">SR</div>
+                  </div>
+                  <div>
+                    <h3 class="review-card__name">Sardor Rahimov</h3>
+                    <span class="review-card__role">Doimiy mijoz • Toshkent</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Review 2 -->
+              <article class="review-card carousel__slide">
+                <div class="review-card__top">
+                  <div class="review-card__stars" aria-label="5 yulduzdan 5">★★★★★</div>
+                  <span class="review-card__quote" aria-hidden="true">”</span>
+                </div>
+                <p class="review-card__text">
+                  "Oilamiz bilan dam olish kunlari KIWI setlarini buyurtma qilamiz. Bolalarga Crispy Nuggets va kartoshka fri juda yoqadi. Qadoqlash ham juda sifatli va chiroyli."
+                </p>
+                <div class="review-card__author">
+                  <div class="img-slot img-slot--avatar">
+                    <img src="assets/images/customer-avatar-2.png" alt="Madina Karimova" loading="lazy" class="img-slot__img" onerror="this.parentElement.classList.add('is-missing')">
+                    <div class="img-slot__fallback img-slot__fallback--avatar" aria-hidden="true">MK</div>
+                  </div>
+                  <div>
+                    <h3 class="review-card__name">Madina Karimova</h3>
+                    <span class="review-card__role">Mijoz • Chilonzor</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Review 3 -->
+              <article class="review-card carousel__slide">
+                <div class="review-card__top">
+                  <div class="review-card__stars" aria-label="5 yulduzdan 5">★★★★★</div>
+                  <span class="review-card__quote" aria-hidden="true">”</span>
+                </div>
+                <p class="review-card__text">
+                  "Double Burger va Tandir Lavashni sinab ko'rdim — ikkalasi ham a'lo darajada! Masalliqlar yangi, noni yumshoq, xizmat ko'rsatish madaniyati esa yuqori."
+                </p>
+                <div class="review-card__author">
+                  <div class="img-slot img-slot--avatar">
+                    <img src="assets/images/customer-avatar-3.png" alt="Jasurbek Toshmatov" loading="lazy" class="img-slot__img" onerror="this.parentElement.classList.add('is-missing')">
+                    <div class="img-slot__fallback img-slot__fallback--avatar" aria-hidden="true">JT</div>
+                  </div>
+                  <div>
+                    <h3 class="review-card__name">Jasurbek Toshmatov</h3>
+                    <span class="review-card__role">Fud-bloger • Yunusobod</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Review 4 -->
+              <article class="review-card carousel__slide">
+                <div class="review-card__top">
+                  <div class="review-card__stars" aria-label="5 yulduzdan 5">★★★★★</div>
+                  <span class="review-card__quote" aria-hidden="true">”</span>
+                </div>
+                <p class="review-card__text">
+                  "Ofis tushligi uchun hamkasblar bilan tez-tez buyurtma beramiz. Narxlar hamyonbop, porsiyalar katta va eng muhimi — har safar bir xil yuqori sifat."
+                </p>
+                <div class="review-card__author">
+                  <div class="img-slot img-slot--avatar">
+                    <img src="assets/images/customer-avatar-1.png" alt="Nilufar Azizova" loading="lazy" class="img-slot__img" onerror="this.parentElement.classList.add('is-missing')">
+                    <div class="img-slot__fallback img-slot__fallback--avatar" aria-hidden="true">NA</div>
+                  </div>
+                  <div>
+                    <h3 class="review-card__name">Nilufar Azizova</h3>
+                    <span class="review-card__role">Mijoz • Mirzo Ulug'bek</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="carousel__dots" id="reviewsDots" role="tablist" aria-label="Sharh sahifalari"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- H. Call-to-Action Section -->
+    <section class="cta-banner">
+      <div class="container">
+        <div class="cta-banner__box reveal-up">
+          <div class="cta-banner__pattern" aria-hidden="true"></div>
+          <div class="cta-banner__content">
+            <h2 class="cta-banner__title">Bugun KIWI ta'mini sinab ko'ring!</h2>
+            <p class="cta-banner__desc">
+              Sevimli taomingizni tanlang va mazali lahzalardan bahramand bo'ling.
+            </p>
+          </div>
+          <div class="cta-banner__actions">
+            <a href="#menyu" class="btn btn--dark btn--lg">
+              Menyuga o'tish
+            </a>
+            <button type="button" class="btn btn--white btn--lg" data-open-order>
+              Tezkor buyurtma
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- I. Footer -->
+  <footer class="footer" id="aloqa">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="#bosh-sahifa" class="logo">
+            <span class="logo__badge">K</span>
+            <span class="logo__text">KIWI</span>
+            <span class="logo__dot" aria-hidden="true"></span>
+          </a>
+          <p class="footer__desc">
+            Zamonaviy fast-food madaniyati, yangi ingredientlar va har bir buyurtmada unutilmas ta'm uyg'unligi.
+          </p>
+          <div class="social-links" aria-label="Ijtimoiy tarmoqlar">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Telegram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer__col">
+          <h3 class="footer__heading">Sahifalar</h3>
+          <ul class="footer__links">
+            <li><a href="#bosh-sahifa">Bosh sahifa</a></li>
+            <li><a href="#menyu">Menyu</a></li>
+            <li><a href="#biz-haqimizda">Biz haqimizda</a></li>
+            <li><a href="#aksiyalar">Aksiyalar</a></li>
+            <li><a href="#aloqa">Aloqa</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h3 class="footer__heading">Aloqa ma'lumotlari</h3>
+          <ul class="footer__contact">
+            <li>
+              <span class="footer__label">Telefon:</span>
+              <a href="tel:+998712000000">+998 (71) 200-00-00</a>
+            </li>
+            <li>
+              <span class="footer__label">Manzil:</span>
+              <span>Toshkent sh., Amir Temur shoh ko'chasi, 15-uy</span>
+            </li>
+            <li>
+              <span class="footer__label">Ish vaqti:</span>
+              <span>Har kuni: 09:00 — 02:00</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h3 class="footer__heading">Tezkor buyurtma</h3>
+          <p class="footer__note">Savolingiz bormi yoki telefon orqali buyurtma bermoqchimisiz?</p>
+          <button type="button" class="btn btn--primary btn--full" data-open-order>
+            Buyurtma berish
+          </button>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>© 2026 KIWI. Barcha huquqlar himoyalangan.</p>
+        <div class="footer__legal">
+          <a href="#aloqa" data-open-order>Yetkazib berish shartlari</a>
+          <span>•</span>
+          <a href="#biz-haqimizda">Sifat kafolati</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button type="button" class="back-to-top" id="backToTop" aria-label="Yuqoriga qaytish">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- Interactive Order Modal / Drawer -->
+  <div class="order-modal" id="orderModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="orderModalTitle">
+    <div class="order-modal__backdrop" data-close-order></div>
+    <div class="order-modal__panel">
+      <div class="order-modal__header">
+        <div>
+          <span class="section-eyebrow">KIWI YETKAZIB BERISH</span>
+          <h2 class="order-modal__title" id="orderModalTitle">Buyurtma rasmiylashtirish</h2>
+        </div>
+        <button type="button" class="order-modal__close" data-close-order aria-label="Oynani yopish">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="order-modal__body">
+        <div class="cart-section">
+          <div class="cart-section__head">
+            <h3>Tanlangan taomlar</h3>
+            <button type="button" class="cart-clear-btn" id="clearCartBtn">Tozalash</button>
+          </div>
+          <div class="cart-items" id="cartItemsList"></div>
+          <div class="cart-summary">
+            <span>Jami summa:</span>
+            <strong id="cartTotalPrice">0 so'm</strong>
+          </div>
+        </div>
+
+        <form class="order-form" id="orderForm" novalidate>
+          <div class="form-group">
+            <label for="customerName">Ismingiz *</label>
+            <input type="text" id="customerName" name="customerName" placeholder="Masalan: Sardor" required>
+            <span class="form-error" id="nameError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="customerPhone">Telefon raqamingiz *</label>
+            <input type="tel" id="customerPhone" name="customerPhone" placeholder="+998 90 123 45 67" required>
+            <span class="form-error" id="phoneError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="customerAddress">Yetkazib berish manzili *</label>
+            <input type="text" id="customerAddress" name="customerAddress" placeholder="Tuman, ko'cha, uy raqami" required>
+            <span class="form-error" id="addressError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="orderNote">Qo'shimcha izoh (ixtiyoriy)</label>
+            <textarea id="orderNote" name="orderNote" rows="2" placeholder="Kuryer uchun izoh yoki sous bo'yicha istak..."></textarea>
+          </div>
+
+          <div class="form-alert" id="formAlert" role="alert"></div>
+
+          <button type="submit" class="btn btn--primary btn--full btn--lg">
+            Buyurtmani tasdiqlash
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/menu.js"></script>
+  <script src="js/carousel.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

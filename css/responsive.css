@@ -1,0 +1,164 @@
+/* ==========================================================================
+   KIWI Fast Food — Mobile-First Responsive Breakpoints
+   Breakpoints:
+   - Mobile:           320px – 767px (Base styles)
+   - Tablets:          768px – 1023px
+   - Standard Desktop: 1024px – 1439px
+   - Large Desktop:    1440px+
+   ========================================================================== */
+
+/* Small Mobile Adjustments (320px - 420px) */
+@media (max-width: 420px) {
+  .hero__floating-card--top,
+  .hero__floating-card--bottom {
+    position: static;
+    margin-top: 0.75rem;
+    animation: none;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+  }
+
+  .promo-perks {
+    grid-template-columns: 1fr;
+  }
+
+  .about-frame__experience {
+    left: 12px;
+    bottom: 12px;
+  }
+}
+
+/* Tablets: 768px – 1023px */
+@media (min-width: 768px) {
+  :root {
+    --container-pad: 2rem;
+    --section-py: 6rem;
+  }
+
+  .navbar__cta {
+    display: inline-flex;
+  }
+
+  .section-header--split {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  /* Carousel: 2 cards visible on tablet */
+  .carousel__slide {
+    flex: 0 0 calc((100% - 1.5rem) / 2);
+  }
+
+  /* Menu Grid: 2 columns on tablet */
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cta-banner__box {
+    padding: 3.5rem 3rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer__bottom {
+    flex-direction: row;
+    text-align: left;
+  }
+}
+
+/* Standard Desktops: 1024px – 1439px */
+@media (min-width: 1024px) {
+  :root {
+    --container-pad: 2.5rem;
+    --section-py: 7rem;
+  }
+
+  .nav {
+    display: block;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .hero__container {
+    grid-template-columns: 1.08fr 0.92fr;
+    gap: 3.5rem;
+  }
+
+  .hero__scroll-down {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--white-75);
+    z-index: 3;
+  }
+
+  .hero__scroll-line {
+    width: 2px;
+    height: 28px;
+    background-color: var(--color-primary);
+  }
+
+  /* Carousel: 3 cards visible on desktop */
+  .carousel__slide {
+    flex: 0 0 calc((100% - 3rem) / 3);
+  }
+
+  /* Reviews Carousel: 3 cards on desktop */
+  .reviews-carousel .carousel__slide {
+    flex: 0 0 calc((100% - 3rem) / 3);
+  }
+
+  /* Menu Grid: 3 columns on desktop */
+  .menu-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .promo-section__container {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 4rem;
+  }
+
+  .about-section__container {
+    grid-template-columns: 0.92fr 1.08fr;
+    gap: 4.5rem;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1.4fr 0.85fr 1.15fr 1fr;
+  }
+}
+
+/* Large Desktops: 1440px and above */
+@media (min-width: 1440px) {
+  :root {
+    --container-max: 1380px;
+    --section-py: 7.5rem;
+  }
+
+  .hero__title {
+    font-size: 4.85rem;
+  }
+
+  .menu-grid {
+    gap: 1.85rem;
+  }
+}
